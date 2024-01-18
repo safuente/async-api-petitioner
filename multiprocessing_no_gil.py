@@ -1,5 +1,6 @@
 import time
 import threading
+import multiprocessing
 
 def countdown(number):
     while number > 0:
@@ -10,8 +11,8 @@ if __name__ == '__main__':
 
     count = 100000000
 
-    t1 = threading.Thread(target=countdown, args=(count,))
-    t2 = threading.Thread(target=countdown, args=(count,))
+    t1 = multiprocessing.Process(target=countdown, args=(count,))
+    t2 = multiprocessing.Process(target=countdown, args=(count,))
 
     t1.start()
     t2.start()
